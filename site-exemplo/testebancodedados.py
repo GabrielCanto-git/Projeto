@@ -19,3 +19,4 @@ cursor.execute(comando)#comando que executa
 cursor.commit()#Só precisa disso caso o comando edite o banco de dados
 
 #sd
+#teste
