@@ -19,6 +19,7 @@ comando = """INSERT INTO autor(id, nome, livros)
 cursor.execute(comando)#comando que executa
 cursor.commit()#Só precisa disso caso o comando edite o banco de dados
 
+<<<<<<< HEAD
 #Função para o botão de adicionar o usuario
 #def cadastrar_usuario(self, nome, email, genero, idade):
 #   
@@ -30,3 +31,7 @@ cursor.commit()#Só precisa disso caso o comando edite o banco de dados
 
 
 
+=======
+#sd
+#teste
+>>>>>>> f22628f987e46118a7f44a1777fd23753c170e24
