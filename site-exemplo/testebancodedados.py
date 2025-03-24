@@ -17,3 +17,4 @@ VALUES
 cursor.execute(comando)
 cursor.commit()
 
+
