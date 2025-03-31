@@ -1,4 +1,7 @@
 import tkinter as tk
+import json
+
+
 
 class Livro:
     def __init__(self, titulo, genero):
@@ -19,8 +22,12 @@ class Biblioteca:
         self.livros = []
 
     def adicionar_livro(self, titulo, genero):
+        novo_livro = {'titulo:','genero:'}
         novo_livro = Livro(titulo, genero)
-        self.livros.append(novo_livro)
+        dados = self.livros.append(novo_livro)
+        with open('livro.json', 'w', encoding='utf-8') as arq:
+            json.dump(dados, arq, indent=4, ensure_ascii=False)
+
 
     def emprestar_livro(self, titulo):
         for livro in self.livros:
