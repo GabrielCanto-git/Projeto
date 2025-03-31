@@ -1,12 +1,7 @@
 [
     {
-        "id_autor": 1,
-        "nome": "Machado de Assis",
-        "nacionalidade": "Brasileiro"
-    },
-    {
-        "id_autor": 2,
-        "nome": "Jane Austen",
-        "nacionalidade": "Britânica"
+        "id_autor": 3,
+        "nome": "Shakespare",
+        "nacionalidade": "Romano"
     }
 ]

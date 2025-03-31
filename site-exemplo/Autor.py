@@ -16,9 +16,9 @@ class Autor:
 
     def salvar_em_json(autores, arquivo="autores.json"):
         with open(arquivo, "w", encoding="utf-8") as f:
-            json.dump([autor.para_dicionario() for autor in autores], f, indent=4, ensure_ascii=False)
+            
+    def do_dicionario(self)        
 
-#
     def carregar_de_json(arquivo="autores.json"):
         try:
             with open(arquivo, "r", encoding="utf-8") as f:
@@ -28,11 +28,10 @@ class Autor:
             return print("O arquivo não foi encontrado")
         
 #colocar um input aqui:
-autor1 = Autor(1, "Machado de Assis", "Brasileiro")
-autor2 = Autor(2, "Jane Austen", "Britânica")
 
+autor3 = Autor(3, "Shakespare", "Romano" )
 #Salvando autores em json
-Autor.salvar_em_json([autor1, autor2])
+Autor.salvar_em_json([autor3])
 
 # Carregar autores do arquivo json
 autores_carregados = Autor.carregar_de_json()
@@ -40,7 +39,7 @@ for autor in autores_carregados:
     print(f"ID: {autor.id_autor}, Nome: {autor.nome}, Nacionalidade: {autor.nacionalidade}")
 
 
-def cadastrar_autor(arquivo="autores.json"):
+"""def cadastrar_autor(arquivo="autores.json"):
         autores = Autor.carregar_de_json(arquivo)
 
 
@@ -52,7 +51,36 @@ def cadastrar_autor(arquivo="autores.json"):
         autores.append(novo_autor)
 
         Autor.salvar_em_json(autores, arquivo)
-        print(f"Autor {nome} cadastrado com sucesso!")
+       print(f"Autor {nome} cadastrado com sucesso!")"""
+class app:
+    def init(self,root):
+        self.root = root
+        self.root.title("Adicionar Autores")
+        self.root.geometry("800x600")
 
+        self.autor = Autor() 
+        self.botao_adicionar = tk.Button(self.root, text="Adicionar Autor", command=self.abrir_janela_adicionar_autor)
+        self.botao_adicionar.pack(pady=20)
+
+    def abrir_janela_adicionar_autor(self):
+        adicionar_autor = tk.Toplevel(self.root)
+        adicionar_autor.title("Adicionar Autor")
+        adicionar_autor.geometry("400x300")
+
+        tk.Label(adicionar_autor, text="Título").pack(pady=5)
+        entry_titulo = tk.Entry(adicionar_autor)
+        entry_titulo.pack(pady=5)
+
+        tk.Label(adicionar_autor, text="Gênero").pack(pady=5)
+        entry_genero = tk.Entry(adicionar_autor)
+        entry_genero.pack(pady=5)
+
+
+     root = tk.Tk()
+    root.title("Autores")
+    root.geometry("800x600")
+
+
+    root.mainloop() 
 
         
