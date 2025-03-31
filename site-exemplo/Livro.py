@@ -22,11 +22,8 @@ class Biblioteca:
         self.livros = []
 
     def adicionar_livro(self, titulo, genero):
-        novo_livro = {'titulo:','genero:'}
-        novo_livro = Livro(titulo, genero)
-        dados = self.livros.append(novo_livro)
-        with open('livro.json', 'w', encoding='utf-8') as arq:
-            json.dump(dados, arq, indent=4, ensure_ascii=False)
+       novo_livro = Livro(titulo, genero)
+       self.novo_livro.append(novo_livro)
 
 
     def emprestar_livro(self, titulo):
