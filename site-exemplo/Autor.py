@@ -34,6 +34,30 @@ class Autor:
                 return [Autor.from_dict(autor) for autor in dados]
         except FileNotFoundError:
             return []
+class app:
+    def __init__(self,root):
+        self.root = root
+        self.root.title("Adicionar Autores")
+        self.root.geometry("800x600")
+
+        self.autor = Autor() 
+        self.botao_adicionar = tk.Button(self.root, text="Adicionar Autor", command=self.abrir_janela_adicionar_autor)
+        self.botao_adicionar.pack(pady=20)
+
+    def abrir_janela_adicionar_autor(self):
+        adicionar_autor = tk.Toplevel(self.root)
+        adicionar_autor.title("Adicionar Autor")
+        adicionar_autor.geometry("400x300")
+
+        tk.Label(adicionar_autor, text="Título").pack(pady=5)
+        entry_titulo = tk.Entry(adicionar_autor)
+        entry_titulo.pack(pady=5)
+
+        tk.Label(adicionar_autor, text="Gênero").pack(pady=5)
+        entry_genero = tk.Entry(adicionar_autor)
+        entry_genero.pack(pady=5)
+
+
         
 #colocar um input aqui:
 #autor1 = Autor(1, "Machado de Assis", "Brasileiro")
@@ -47,5 +71,10 @@ class Autor:
 #for autor in autores_carregados:
 #    print(f"ID: {autor.id_autor}, Nome: {autor.nome}, Nacionalidade: {autor.nacionalidade}")
 
+    root = tk.Tk()
+    root.title("Autores")
+    root.geometry("800x600")
+    
 
+    root.mainloop()
         
