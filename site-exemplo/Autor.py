@@ -16,8 +16,10 @@ class Autor:
 
     def salvar_em_json(autores, arquivo="autores.json"):
         with open(arquivo, "w", encoding="utf-8") as f:
-            
-    def do_dicionario(self)        
+            json.dump([autor.para_dicionario() for autor in autores], f, indent=4, ensure_ascii=False)
+    
+    def do_dicionario(cls, dados):
+        return cls(id_autor=dados["id_autor"],nome=dados["nome"], nacionalidade=dados["nacionalidade"])
 
     def carregar_de_json(arquivo="autores.json"):
         try:
@@ -39,7 +41,7 @@ for autor in autores_carregados:
     print(f"ID: {autor.id_autor}, Nome: {autor.nome}, Nacionalidade: {autor.nacionalidade}")
 
 
-"""def cadastrar_autor(arquivo="autores.json"):
+def cadastrar_autor(arquivo="autores.json"):
         autores = Autor.carregar_de_json(arquivo)
 
 
@@ -51,8 +53,9 @@ for autor in autores_carregados:
         autores.append(novo_autor)
 
         Autor.salvar_em_json(autores, arquivo)
-       print(f"Autor {nome} cadastrado com sucesso!")"""
-class app:
+       print(f"Autor {nome} cadastrado com sucesso!")
+
+"""class app:
     def init(self,root):
         self.root = root
         self.root.title("Adicionar Autores")
@@ -81,6 +84,6 @@ class app:
     root.geometry("800x600")
 
 
-    root.mainloop() 
+    root.mainloop() """
 
         
