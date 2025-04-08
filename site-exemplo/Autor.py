@@ -53,7 +53,7 @@ def cadastrar_autor(arquivo="autores.json"):
         autores.append(novo_autor)
 
         Autor.salvar_em_json(autores, arquivo)
-       print(f"Autor {nome} cadastrado com sucesso!")
+        print(f"Autor {nome} cadastrado com sucesso!")
 
 """class app:
     def init(self,root):

@@ -14,7 +14,17 @@ class Livro:
             self.disponivel = False  # O livro agora está emprestado
             return True
         else:
-            return False  # O livro não está disponível    
+            return False  # O livro não está disponível 
+
+    def dicionario(self):
+        return {
+            'titulo': self.titulo,
+            'genero': self.genero
+        }
+    def do_dicionario(cls, dados):
+        return cls(dados["titulo"], dados["genero"], dados["disponivel"])
+
+
 
 
 class Biblioteca:
@@ -24,6 +34,20 @@ class Biblioteca:
     def adicionar_livro(self, titulo, genero):
        novo_livro = Livro(titulo, genero)
        self.novo_livro.append(novo_livro)
+
+    def salvar_emjson(self, arquivo="biblioteca.json"):
+        with open(arquivo, "w", encoding="utf-8") as f:
+             json.dump([livro.dicionario() for livro in self.livros], f, indent=4, ensure_ascii=False)
+
+
+    def carregar_de_json(self, arquivo="biblioteca.json"):
+        try:
+            with open(arquivo, "r", encoding="utf-8") as f:
+                dados = json.load(f)
+                self.livros = [Livro.do_dicionario(d) for d in dados]
+        except FileNotFoundError:
+            print("Arquivo não encontrado")
+
 
 
     def emprestar_livro(self, titulo):
