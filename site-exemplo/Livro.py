@@ -2,7 +2,18 @@ import tkinter as tk
 import json
 
 
+class Livro:
+    def __init__(self, titulo, genero):
+        self.titulo = titulo
+        self.genero = genero
+        self.disponivel = True
 
+    def emprestar(self):
+        if self.disponivel:
+            self.disponivel = False  
+            return True
+        else:
+            return False 
 class Livro:
     def __init__(self, titulo, genero):
         self.titulo = titulo
