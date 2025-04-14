@@ -33,7 +33,7 @@ class Biblioteca:
 
     def adicionar_livro(self, titulo, genero):
        novo_livro = Livro(titulo, genero)
-       self.novo_livro.append(novo_livro)
+       self.livros.append(novo_livro)
 
     def salvar_emjson(self, arquivo="biblioteca.json"):
         with open(arquivo, "w", encoding="utf-8") as f:

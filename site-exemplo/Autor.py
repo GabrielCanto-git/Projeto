@@ -7,19 +7,19 @@ class Autor:
         self.nome = nome
         self.nacionalidade = nacionalidade
 
-    def para_dicionario(self):
+    def dicionario(self):
         return{
             "id_autor": self.id_autor,
             "nome": self.nome,
             "nacionalidade": self.nacionalidade}
     
+    def do_dicionario(cls, dados):
+        return cls(id_autor=dados["id_autor"],nome=dados["nome"], nacionalidade=dados["nacionalidade"])
+    
 
     def salvar_em_json(autores, arquivo="autores.json"):
         with open(arquivo, "w", encoding="utf-8") as f:
-            json.dump([autor.para_dicionario() for autor in autores], f, indent=4, ensure_ascii=False)
-    
-    def do_dicionario(cls, dados):
-        return cls(id_autor=dados["id_autor"],nome=dados["nome"], nacionalidade=dados["nacionalidade"])
+            json.dump([autor.dicionario() for autor in autores], f, indent=4, ensure_ascii=False)
 
     def carregar_de_json(arquivo="autores.json"):
         try:
